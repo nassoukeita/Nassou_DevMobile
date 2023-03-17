@@ -4,7 +4,7 @@ import 'package:miage/pageAchat/page-achat.dart';
 import 'package:miage/pageAchat/panier.dart';
 
 import '../login/pageLogin.dart';
-import '../profilUtilisateur.dart';
+import '../login/profilUtilisateur.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override

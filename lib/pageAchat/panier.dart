@@ -183,7 +183,11 @@ class _MonPanierState extends State<MonPanier> {
 
 
   void _removeFromPanier(DocumentSnapshot doc) { // définit la méthode pour retirer un article du panier
-    FirebaseFirestore.instance.collection('panier').doc(doc.id).delete(); // supprime le document correspondant dans la collection "panier"
+    FirebaseFirestore.instance..collection("panier")
+        .doc(FirebaseAuth.instance.currentUser!.email)
+        .collection("items")
+        .doc(doc.id)
+        .delete(); // supprime le document correspondant dans la collection "panier"
   }
 
   void _addToPanier(DocumentSnapshot doc) {
