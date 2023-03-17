@@ -1,7 +1,7 @@
 # miage
 Ce projet consistais à développer une version light de l’application Vinted. 
 
-##### le [MVP] que j'ai développer 
+##### le [MVP] que j'ai développé 
 
 US#1 : [MVP] Interface de login
 En tant qu'utilisateur, je souhaite pouvoir me connecter à l'application afin d'accéder à la page suivante.
@@ -14,7 +14,6 @@ Critère d'acceptance #6 : Au clic sur le bouton « Se connecter » avec les deu
 
 US#2 : [MVP] Liste de vêtements
 En tant qu'utilisateur connecté, je souhaite voir la liste des vêtements afin de choisir ceux qui m'intéressent.
-
 Critère d'acceptance #1 : Une fois connecté, l'utilisateur arrive sur cette page composée du contenu principal et d'une BottomNavigationBar composée de trois entrées et leurs icônes correspondantes : Acheter, Panier et Profil
 Critère d'acceptance #2 : La page actuelle est la page Acheter. Son icône et son texte sont d'une couleur différente des autres entrées
 Critère d'acceptance #3 : Une liste déroulante de tous les vêtements m'est proposée à l'écran
