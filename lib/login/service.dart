@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Service {
@@ -19,13 +20,19 @@ class Service {
 
   // Inscription avec email et mot de passe
   Future<UserCredential?> signUpWithEmailAndPassword(
-      String email, String password) async {
+      String email, String password, String adresse, String codePostal, String ville, DateTime dateNaissance) async {
     try {
       UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      await FirebaseFirestore.instance.collection("users").doc(userCredential.user!.uid).set({
+        "adresse": adresse,
+        "code_postal": codePostal,
+        "ville": ville,
+        "anniversaire": dateNaissance
+      });
       return userCredential;
     } catch (e) {
       print(e.toString());

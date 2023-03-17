@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miage/login/service.dart';
 import '../pageAchat/bottomNavigation.dart';
+import 'inscription.dart';
 
 class PageLogin extends StatefulWidget {
   @override
@@ -49,7 +50,8 @@ class _PageLoginState extends State<PageLogin> {
       appBar: AppBar(
         title: Text('NassouFashion'),
       ),
-      body: Container(
+      body: SingleChildScrollView(
+      child:Container(
         decoration: BoxDecoration(
           color: Colors.white,
         ),
@@ -63,7 +65,7 @@ class _PageLoginState extends State<PageLogin> {
                 Icon(
                   Icons.person,
                   size: 80,
-                  color: Colors.pink,
+                  color: Colors.black,
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
@@ -119,6 +121,17 @@ class _PageLoginState extends State<PageLogin> {
                     ),
                   ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PageIncription(),
+                      ),
+                    );
+                  },
+                  child: const Text('Pas de compte ? Inscriviez-vous ici'),
+                ),
                 SizedBox(height: 20.0),
                 Text(
                   _error,
@@ -130,6 +143,7 @@ class _PageLoginState extends State<PageLogin> {
             ),
           ),
         ),
+      ),
       ),
     );
   }
