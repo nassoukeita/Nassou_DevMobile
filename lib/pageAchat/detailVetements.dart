@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:miage/pageAchat/page-achat.dart';
 
-import 'package:miage/pageAchat/panier.dart';
-
 class DetailVetement extends StatefulWidget {
   final String id;
   final dynamic data;
@@ -17,7 +15,6 @@ class DetailVetement extends StatefulWidget {
 }
 
 class _DetailVetementState extends State<DetailVetement> {
-
   Future<void> _addToPanier(Map<String, dynamic> data) async {
     try {
       print('Data received: $data'); // <-- Ajout pour débogage
@@ -40,8 +37,7 @@ class _DetailVetementState extends State<DetailVetement> {
           content: Text('Le vêtement a été ajouté au panier'),
         ),
       );
-    }
-    catch (e) {
+    } catch (e) {
       print('Erreur lors de l\'ajout au panier: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -50,7 +46,6 @@ class _DetailVetementState extends State<DetailVetement> {
       );
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +91,7 @@ class _DetailVetementState extends State<DetailVetement> {
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () => _addToPanier(widget.data),
-                      child:  Text('Ajouter au panier'),
+                      child: Text('Ajouter au panier'),
                     ),
                     const SizedBox(height: 16),
                     ElevatedButton(
@@ -108,8 +103,7 @@ class _DetailVetementState extends State<DetailVetement> {
                           ),
                         );
                       },
-                      child:
-                      const Text('retour'),
+                      child: const Text('retour'),
                     ),
                     const SizedBox(height: 16),
                   ],

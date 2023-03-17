@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:miage/pageAchat/detailVetements.dart';
-import 'package:miage/pageAchat/panier.dart';
-
-import '../login/pageLogin.dart';
 
 class ListeVetements extends StatefulWidget {
   const ListeVetements({Key? key}) : super(key: key);
@@ -83,11 +79,11 @@ class _ListeVetementsState extends State<ListeVetements>
             return ListView(
               children: snapshot.data!.docs
                   .where((document) =>
-              _selectedCategory == 'Tous' ||
-                  document['categorie'] == _selectedCategory)
+                      _selectedCategory == 'Tous' ||
+                      document['categorie'] == _selectedCategory)
                   .map((DocumentSnapshot document) {
                 Map<String, dynamic> data =
-                document.data()! as Map<String, dynamic>;
+                    document.data()! as Map<String, dynamic>;
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(

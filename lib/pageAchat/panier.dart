@@ -4,9 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MonPanier extends StatefulWidget {
   final List<Map<String, dynamic>> cart;
-
   MonPanier({required this.cart});
-
 
   @override
   _MonPanierState createState() => _MonPanierState();
@@ -18,7 +16,6 @@ class _MonPanierState extends State<MonPanier> {
       .doc(FirebaseAuth.instance.currentUser!.email)
       .collection("items")
       .snapshots();
-  //late Stream<QuerySnapshot> _panierStream;
   List<DocumentSnapshot> _panier = [];
 
   double _calculateTotal(QuerySnapshot snapshot) {
@@ -34,10 +31,7 @@ class _MonPanierState extends State<MonPanier> {
   @override
   void initState() {
     _loadPanier();
-    //_panierStream = FirebaseFirestore.instance.collection('panier').snapshots();
   }
-
-  //String _currentCategory = 'Tous les vêtements';
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +122,6 @@ class _MonPanierState extends State<MonPanier> {
                                   Text(
                                     '${doc['prix']} €',
                                   ),
-
                                 ],
                               ),
                             ),
@@ -172,7 +165,8 @@ class _MonPanierState extends State<MonPanier> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final docs = await FirebaseFirestore.instance.collection('panier').get();
+          final docs =
+              await FirebaseFirestore.instance.collection('panier').get();
           final vetement = docs.docs.first;
           _addToPanier(vetement);
         },
@@ -181,13 +175,14 @@ class _MonPanierState extends State<MonPanier> {
     );
   }
 
-
-  void _removeFromPanier(DocumentSnapshot doc) { // définit la méthode pour retirer un article du panier
-    FirebaseFirestore.instance..collection("panier")
-        .doc(FirebaseAuth.instance.currentUser!.email)
-        .collection("items")
-        .doc(doc.id)
-        .delete(); // supprime le document correspondant dans la collection "panier"
+  void _removeFromPanier(DocumentSnapshot doc) {
+    // définit la méthode pour retirer un article du panier
+    FirebaseFirestore.instance
+      ..collection("panier")
+          .doc(FirebaseAuth.instance.currentUser!.email)
+          .collection("items")
+          .doc(doc.id)
+          .delete(); // supprime le document correspondant dans la collection "panier"
   }
 
   void _addToPanier(DocumentSnapshot doc) {
@@ -197,11 +192,13 @@ class _MonPanierState extends State<MonPanier> {
   }
 
   void _loadPanier() async {
-    final snapshot = await FirebaseFirestore.instance.collection('panier').get();
+    final snapshot =
+        await FirebaseFirestore.instance.collection('panier').get();
     setState(() {
-      _panier = snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).cast<DocumentSnapshot<Object?>>().toList();
-
+      _panier = snapshot.docs
+          .map((doc) => doc.data() as Map<String, dynamic>)
+          .cast<DocumentSnapshot<Object?>>()
+          .toList();
     });
   }
 }
-

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
-
 import 'pageLogin.dart';
 
 class ProfilUtilisateur extends StatefulWidget {
@@ -19,7 +18,7 @@ class _ProfilUtilisateurState extends State<ProfilUtilisateur> {
   final TextEditingController _adresseController = TextEditingController();
   final TextEditingController _codePostalController = TextEditingController();
   final TextEditingController _villeController = TextEditingController();
-DateTime? _selectedDate;
+  DateTime? _selectedDate;
 
   late String _login;
   late String _password;
@@ -33,16 +32,20 @@ DateTime? _selectedDate;
   }
 
   Future<void> _fetchUserData() async {
-    final doc = await FirebaseFirestore.instance.collection('users').doc(widget.user!.uid).get();
+    final doc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(widget.user!.uid)
+        .get();
     if (doc.exists) {
       final data = doc.data()!;
-     // _anniversaireController.text = data['anniversaire'] ?? '';
+      // _anniversaireController.text = data['anniversaire'] ?? '';
       _adresseController.text = data['adresse'] ?? '';
       _codePostalController.text = data['code_postal'] ?? '';
       _villeController.text = data['ville'] ?? '';
       _selectedDate = (data['anniversaire'] as Timestamp?)?.toDate();
     }
   }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
@@ -55,6 +58,7 @@ DateTime? _selectedDate;
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,8 +89,7 @@ DateTime? _selectedDate;
                     children: [
                       Text(
                         _selectedDate != null
-                            ? '${_selectedDate!.day}/${_selectedDate!
-                            .month}/${_selectedDate!.year}'
+                            ? '${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year}'
                             : 'Sélectionner une date',
                         style: TextStyle(fontSize: 16.0),
                       ),
@@ -123,34 +126,35 @@ DateTime? _selectedDate;
                     ),
                     const SizedBox(height: 18),
                     ElevatedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => PageLogin()));
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PageLogin()));
                       },
                       child: Text('Se déconnecter'),
-
                     ),
                   ],
                 ),
               ),
-
             ],
           ),
         ),
       ),
-
     );
   }
 
   Future<void> _updateUserData() async {
-    await FirebaseFirestore.instance.collection('users').doc(widget.user!.uid).set({
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(widget.user!.uid)
+        .set({
       'anniversaire': _selectedDate,
       'adresse': _adresseController.text,
       'code_postal': _codePostalController.text,
       'ville': _villeController.text,
     }, SetOptions(merge: true));
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Les modifications ont été enregistrées.')));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Les modifications ont été enregistrées.')));
   }
-
-
 }
-

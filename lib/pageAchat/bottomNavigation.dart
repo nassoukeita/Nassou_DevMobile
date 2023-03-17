@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:miage/pageAchat/page-achat.dart';
 import 'package:miage/pageAchat/panier.dart';
-
-import '../login/pageLogin.dart';
 import '../login/profilUtilisateur.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -16,7 +14,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   final List<Widget> _pages = [
     ListeVetements(),
-    MonPanier(cart: [],),
+    MonPanier(
+      cart: [],
+    ),
     ProfilUtilisateur(user: FirebaseAuth.instance.currentUser),
   ];
 
@@ -28,8 +28,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         currentIndex: _currentIndex,
         selectedItemColor: Colors.pink,
         unselectedItemColor: Colors.black,
-
-        items: const <BottomNavigationBarItem> [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag),
             label: 'Acheter',
