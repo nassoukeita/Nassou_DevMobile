@@ -1,5 +1,5 @@
 # miage
-Ce projet consistais à développer une version light de l’application Vinted. 
+Ce projet consistais à développer une version light de l’application Vinted que j'ai nommé 'NassouFashion'. 
 
 ##### le [MVP] que j'ai développé 
 
