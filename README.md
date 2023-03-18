@@ -1,4 +1,13 @@
 # miage
+<p float="left">
+  <img src="./asset/Login.png" width="200" />
+  <img src="./asset/inscription.png" width="200" /> 
+  <img src="./asset/ListeVetement.png" width="200" />
+  <img src="./asset/CategorieVeste.png" width="200" />
+  <img src="./asset/Detaille.png" width="200" />
+  <img src="./asset/Panier.png" width="200" />
+  <img src="./asset/Profil.png" width="200" />
+</p>
 Ce projet consistais à développer une version light de l’application Vinted que j'ai nommé 'NassouFashion'. 
 
 ##### le [MVP] que j'ai développé 
@@ -40,3 +49,5 @@ Users1
 Users2
 -Login:nassouk96@gmail.com
 -Password: nassou
+
+.
