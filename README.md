@@ -1,4 +1,4 @@
-# miage
+# Miaged
 <p float="left">
   <img src="./asset/Login.png" width="200" />
   <img src="./asset/inscription.png" width="200" /> 
