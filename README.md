@@ -38,8 +38,50 @@ Critère d'acceptance #5 : Au clic sur une entrée de la liste, le détail est a
 Critère d'acceptance #6 : Cette liste de vêtements est récupérée de la base de données
 
 US#3 : [MVP] Détail d’un vêtement
+En tant qu’utilisateur connecté, je souhaite voir le détail d’un vêtement afin de pouvoir vérifier s’il me 
+convient et l’ajouter dans mon panier
+Critère d’acceptance #1 : La page de détail est composée des informations suivantes :
+• Une image
+• Un titre
+• La taille
+• La marque
+• Le prix
+Critère d’acceptance #2 : La page est également composée d’un bouton « Retour » pour retourner à la 
+liste des vétements et d’un bouton « Ajouter au panier », ajoutant le vêtement dans le panier de 
+l’utilisateur (ajout en base)
+
 US#4 : [MVP] Le panier
+En tant qu’utilisateur connecté, je souhaite voir mon panier afin de le vérifier avant achat
+Critère d’acceptance #1 : Au clic sur le bouton « Panier », la liste des vêtements du panier de l’utilisateur 
+est affichée avec les informations suivantes : 
+• Une image (ne pas gérer les images dans l’application, seulement insérer des liens vers des 
+images d’internet)
+• Un titre
+• La taille
+• Le prix
+Critère d’acceptance #2 : Un total général est affiché à l’utilisateur (somme de tous les vêtements du 
+panier)
+Critère d’acceptance #3 : A droite de chaque vetement, une croix permet à l’utilisateur de retirer un 
+produit. Au clic sur celle-ci, le produit est retiré de la liste et le total général mis à jour
+Critère d’acceptance #4 : Aucun autre bouton d’action n’est présent sur la page (pas de paiement pour 
+le moment)
+
 US#5 : [MVP] Profil utilisateur
+En tant qu’utilisateur connecté, je souhaite accéder aux informations de mon profil afin d’en vérifier 
+l’exactitude et de les modifier sur besoin
+Critère d’acceptance #1 : Au clic sur le bouton « Profil », les informations de l’utilisateur s’affichent 
+(récupérées en base de données) 
+Critère d’acceptance #2 : Les informations sont : 
+• Le login (readonly)
+• Le password (offusqué) 
+• L’anniversaire
+• L’adresse
+• Le code postal (affiche le clavier numérique et n’accepte que les chiffres)
+• La ville
+Critère d’acceptance #3 : Un bouton « Valider » permet de sauvegarder les données (en base de 
+données)
+Critère d’acceptance #4 : Un bouton « Se déconnecter » permet de revenir à la page de login
+
 US#6 : Filtrer sur la liste des vêtements
 US#7 : Laisser libre cours à votre imagination
 
