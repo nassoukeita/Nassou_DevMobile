@@ -83,7 +83,18 @@ données)
 Critère d’acceptance #4 : Un bouton « Se déconnecter » permet de revenir à la page de login
 
 US#6 : Filtrer sur la liste des vêtements
+En tant qu’utilisateur connecté, je souhaite pouvoir filtrer la liste des vêtements pour afficher seulement 
+une catégorie
+Critère d’acceptance #1 : Sur la page « Acheter », une TabBar 
+(https://flutter.dev/docs/cookbook/design/tabs) est présente, listant les différentes catégories de 
+vêtements 
+Critère d’acceptance #2 : Par défaut, l’entrée « Tous » est sélectionnée et tous les vêtements sont 
+affichés
+Critère d’acceptance #3 : Au clic sur une des entrées, la liste est filtrée pour afficher seulement les 
+vêtements correspondants à la catégorie sélectionnée
+
 US#7 : Laisser libre cours à votre imagination
+En tant qu’utilisateur , je souhaite pouvoir m'inscrire en creant un compte avec un login et passWord.
 
 
 ### Pour la connection:
